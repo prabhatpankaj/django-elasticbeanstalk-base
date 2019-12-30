@@ -13,7 +13,7 @@
 - django-storages
 
 
-* steps to Install
+### steps to Install
 
 - create aws iam user
 - activate venv and pip install -r requirements.txt
