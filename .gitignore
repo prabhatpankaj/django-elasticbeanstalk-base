@@ -1,0 +1,27 @@
+.DS_Store
+
+*.log
+*.pot
+*.pyc
+*.csv
+__pycache__/
+local_settings.py
+db.sqlite3
+dump.rdb
+media/
+stroot/
+
+.idea
+
+secrets.json
+
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+.env
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

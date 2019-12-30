@@ -1,0 +1,37 @@
+# GitLab CI Docker Image
+image: prabhatiitbhu/gitlabdockernodejs10python3:latest
+
+
+# Build - Build necessary JS files
+# Test - Run tests
+# Deploy - Deploy application to S3/ElasticBeanstalk
+stages:
+  - development
+  - production
+
+# Configuration
+variables:
+  EB_APP_NAME_DEV: "satvacart" # ElasticBeanstalk Application Name
+  EB_APP_NAME_PROD: "satvacart" # ElasticBeanstalk Application Name
+  EB_APP_ENV_DEV: "development" # ElasticBeanstalk Application Environment
+  EB_APP_ENV_PROD: "production" # ElasticBeanstalk Application Environment
+  S3_BUCKET_DEV: "elasticbeanstalk-ap-south-1-199544080386" # S3 bucket for ElasticBeanstalk
+  S3_BUCKET_PROD: "elasticbeanstalk-ap-south-1-199544080386" # S3 bucket for ElasticBeanstalk
+  S3_KEY_DEV: "satvacartdev" # S3 folder to upload built app
+  S3_KEY_PROD: "satvacart" # S3 folder to upload built app
+
+# Job: Deploy
+# Zips the contents of our built application, uploads to S3
+# Configures a new EB version and switches to that version
+development:
+  stage: development
+  script:
+   - bash ./bin/development.sh
+  only:
+   - development
+production:
+  stage: production
+  script:
+   - bash ./bin/production.sh
+  only:
+   - master

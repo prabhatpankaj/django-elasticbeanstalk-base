@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{% block title %}title{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'base/css/reset.css'%}">
+	<link rel="stylesheet" href="{% static 'base/css/base.css'%}">
+  {% block extrastyle %}
+  {% endblock %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+	<div class="header"></div>
+	{% block contents %}
+	{% endblock contents %}
+	<div class="footer"></div>
+</div>
+
+{% block extrascript %}
+{% endblock %}
+</body>
+</html>
